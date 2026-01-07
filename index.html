@@ -6,98 +6,128 @@
     <title>CV Oyama Service - HVAC Specialist</title>
     <meta name="description" content="Jasa Pasang, Service, Cuci AC & Penjualan Unit AC. Teknisi Bersertifikat BNSP dengan Garansi Layanan.">
     
+    <!-- Preload Critical Resources -->
+    <link rel="preconnect" href="https://cdn.tailwindcss.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts - Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Google Fonts - Inter (Preloaded) -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <!-- Font Awesome Icons (Deferred) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" media="print" onload="this.media='all'">
     
     <style>
-        body {
-            font-family: 'Inter', sans-serif;
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Inter', sans-serif; overflow-x: hidden; }
+        
+        /* PRELOADER / INTRO LOADING */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, #0ea5e9 0%, #0284c7 100%);
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s ease-out;
         }
         
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 10px;
+        #preloader.fade-out {
+            opacity: 0;
+            pointer-events: none;
         }
         
-        ::-webkit-scrollbar-track {
-            background: #f1f1f1;
+        .loader {
+            width: 60px;
+            height: 60px;
+            border: 5px solid rgba(255,255,255,0.3);
+            border-top: 5px solid white;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
         }
         
-        ::-webkit-scrollbar-thumb {
-            background: #38bdf8;
-            border-radius: 5px;
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
         
-        ::-webkit-scrollbar-thumb:hover {
-            background: #0ea5e9;
+        .loader-text {
+            color: white;
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 20px;
+            letter-spacing: 0.1em;
         }
         
-        /* Smooth animations */
-        .fade-in {
-            animation: fadeIn 0.8s ease-in;
-        }
+        /* Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f1f1; }
+        ::-webkit-scrollbar-thumb { background: #38bdf8; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #0ea5e9; }
         
+        /* Optimized Animations */
+        .fade-in { animation: fadeIn 0.6s ease-out; }
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
         }
         
-        /* Hover effects */
         .card-hover {
-            transition: all 0.3s ease;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
-        
         .card-hover:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0,0,0,0.1);
         }
         
-        /* WhatsApp Button Float */
+        /* WhatsApp Float */
         .whatsapp-float {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
+            bottom: 25px;
+            right: 25px;
             z-index: 1000;
             animation: pulse 2s infinite;
         }
-        
         @keyframes pulse {
-            0%, 100% {
-                transform: scale(1);
-            }
-            50% {
-                transform: scale(1.1);
-            }
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+        }
+        
+        /* Lazy Load Images */
+        img[loading="lazy"] {
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        img[loading="lazy"].loaded {
+            opacity: 1;
         }
     </style>
 </head>
 <body class="bg-white text-gray-800">
 
+    <!-- PRELOADER / INTRO LOADING -->
+    <div id="preloader">
+        <div class="loader"></div>
+        <div class="loader-text">CV OYAMA SERVICE</div>
+    </div>
+
     <!-- Sticky Navbar -->
     <nav class="bg-white shadow-md sticky top-0 z-50">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
-                <!-- Logo -->
-                <div class="flex items-center space-x-2">
-                    
+                <div class="flex items-center">
                     <span class="text-xl font-bold text-gray-800">CV Oyama Service</span>
                 </div>
                 
-                <!-- Desktop Menu -->
                 <div class="hidden md:flex space-x-8">
                     <a href="#home" class="text-gray-700 hover:text-sky-400 transition font-medium">Home</a>
                     <a href="#services" class="text-gray-700 hover:text-sky-400 transition font-medium">Services</a>
@@ -105,13 +135,11 @@
                     <a href="#contact" class="text-gray-700 hover:text-sky-400 transition font-medium">Contact</a>
                 </div>
                 
-                <!-- Mobile Menu Button -->
-                <button id="mobile-menu-btn" class="md:hidden text-gray-700 focus:outline-none">
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700">
                     <i class="fas fa-bars text-2xl"></i>
                 </button>
             </div>
             
-            <!-- Mobile Menu -->
             <div id="mobile-menu" class="hidden md:hidden pb-4">
                 <a href="#home" class="block py-2 text-gray-700 hover:text-sky-400 transition">Home</a>
                 <a href="#services" class="block py-2 text-gray-700 hover:text-sky-400 transition">Services</a>
@@ -125,7 +153,6 @@
     <section id="home" class="relative bg-gradient-to-br from-sky-50 to-blue-100 py-20 lg:py-32">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid lg:grid-cols-2 gap-12 items-center">
-                <!-- Text Content -->
                 <div class="fade-in">
                     <h1 class="text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-800 leading-tight mb-6">
                         Solusi Udara Sejuk & Nyaman untuk 
@@ -149,16 +176,15 @@
                     </div>
                 </div>
                 
-                <!-- Hero Image -->
                 <div class="fade-in">
                     <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&h=600&fit=crop" 
                          alt="HVAC Service" 
+                         loading="lazy"
                          class="rounded-2xl shadow-2xl w-full h-auto">
                 </div>
             </div>
         </div>
         
-        <!-- Decorative Elements -->
         <div class="absolute top-20 right-10 opacity-10">
             <i class="fas fa-snowflake text-sky-400 text-9xl"></i>
         </div>
@@ -167,7 +193,6 @@
     <!-- Services Section -->
     <section id="services" class="py-20 bg-white">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Section Header -->
             <div class="text-center mb-16">
                 <h2 class="text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
                     Layanan <span class="text-sky-500">Kami</span>
@@ -177,7 +202,6 @@
                 </p>
             </div>
             
-            <!-- Service Cards -->
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Card 1: Jasa -->
                 <div class="card-hover bg-gradient-to-br from-sky-50 to-blue-50 rounded-2xl p-8 text-center border border-sky-100">
@@ -287,7 +311,6 @@
     <!-- Why Choose Us Section -->
     <section id="why-us" class="py-20 bg-gradient-to-br from-sky-50 to-blue-50">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Section Header -->
             <div class="text-center mb-16">
                 <h2 class="text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
                     Mengapa <span class="text-sky-500">Memilih Kami?</span>
@@ -297,9 +320,7 @@
                 </p>
             </div>
             
-            <!-- Features Grid -->
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Feature 1 -->
                 <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition">
                     <div class="bg-sky-100 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
                         <i class="fas fa-certificate text-sky-500 text-3xl"></i>
@@ -310,7 +331,6 @@
                     </p>
                 </div>
                 
-                <!-- Feature 2 -->
                 <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition">
                     <div class="bg-sky-100 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
                         <i class="fas fa-clipboard-check text-sky-500 text-3xl"></i>
@@ -321,7 +341,6 @@
                     </p>
                 </div>
                 
-                <!-- Feature 3 -->
                 <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition">
                     <div class="bg-sky-100 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
                         <i class="fas fa-money-bill-wave text-sky-500 text-3xl"></i>
@@ -332,7 +351,6 @@
                     </p>
                 </div>
                 
-                <!-- Feature 4 -->
                 <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition">
                     <div class="bg-sky-100 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
                         <i class="fas fa-shield-alt text-sky-500 text-3xl"></i>
@@ -343,7 +361,6 @@
                     </p>
                 </div>
                 
-                <!-- Feature 5 -->
                 <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition">
                     <div class="bg-sky-100 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
                         <i class="fas fa-clock text-sky-500 text-3xl"></i>
@@ -354,7 +371,6 @@
                     </p>
                 </div>
                 
-                <!-- Feature 6 -->
                 <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition">
                     <div class="bg-sky-100 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
                         <i class="fas fa-users text-sky-500 text-3xl"></i>
@@ -371,7 +387,6 @@
     <!-- Contact Section -->
     <section id="contact" class="py-20 bg-white">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-            <!-- Section Header -->
             <div class="text-center mb-16">
                 <h2 class="text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
                     Hubungi <span class="text-sky-500">Kami</span>
@@ -382,7 +397,6 @@
             </div>
             
             <div class="grid lg:grid-cols-2 gap-12">
-                <!-- Contact Info -->
                 <div class="space-y-6">
                     <div class="flex items-start space-x-4">
                         <div class="bg-sky-100 w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0">
@@ -405,7 +419,7 @@
                         <div>
                             <h3 class="font-bold text-gray-800 mb-2">WhatsApp</h3>
                             <a href="https://wa.me/6282286168191" target="_blank" class="text-sky-500 hover:text-sky-600 transition">
-                                +62 812-3456-7890
+                                +62 822-8616-8191
                             </a>
                             <p class="text-sm text-gray-500 mt-1">Respon cepat 24/7</p>
                         </div>
@@ -423,34 +437,29 @@
                         </div>
                     </div>
                     
-                    <!-- Social Media -->
                     <div class="pt-6">
                         <h3 class="font-bold text-gray-800 mb-4">Ikuti Kami</h3>
                         <div class="flex space-x-4">
-                            <a href="#" target="_blank" 
-                               class="bg-sky-100 hover:bg-sky-200 w-12 h-12 rounded-lg flex items-center justify-center transition">
+                            <a href="#" target="_blank" class="bg-sky-100 hover:bg-sky-200 w-12 h-12 rounded-lg flex items-center justify-center transition">
                                 <i class="fab fa-facebook-f text-sky-500 text-xl"></i>
                             </a>
-                            <a href="#" target="_blank" 
-                               class="bg-sky-100 hover:bg-sky-200 w-12 h-12 rounded-lg flex items-center justify-center transition">
+                            <a href="#" target="_blank" class="bg-sky-100 hover:bg-sky-200 w-12 h-12 rounded-lg flex items-center justify-center transition">
                                 <i class="fab fa-instagram text-sky-500 text-xl"></i>
                             </a>
-                            <a href="#" target="_blank" 
-                               class="bg-sky-100 hover:bg-sky-200 w-12 h-12 rounded-lg flex items-center justify-center transition">
+                            <a href="#" target="_blank" class="bg-sky-100 hover:bg-sky-200 w-12 h-12 rounded-lg flex items-center justify-center transition">
                                 <i class="fab fa-tiktok text-sky-500 text-xl"></i>
                             </a>
-                            <a href="#" target="_blank" 
-                               class="bg-sky-100 hover:bg-sky-200 w-12 h-12 rounded-lg flex items-center justify-center transition">
+                            <a href="#" target="_blank" class="bg-sky-100 hover:bg-sky-200 w-12 h-12 rounded-lg flex items-center justify-center transition">
                                 <i class="fab fa-youtube text-sky-500 text-xl"></i>
                             </a>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Contact Image -->
                 <div class="rounded-2xl overflow-hidden shadow-xl">
                     <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?w=800&h=600&fit=crop" 
                          alt="Contact Us" 
+                         loading="lazy"
                          class="w-full h-full object-cover">
                 </div>
             </div>
@@ -476,56 +485,83 @@
         <i class="fab fa-whatsapp text-3xl"></i>
     </a>
 
-    <!-- JavaScript for Mobile Menu -->
+    <!-- Optimized JavaScript with Dynamic Preloader Duration -->
     <script>
-        // Mobile Menu Toggle
-        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
-        
-        mobileMenuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-        
-        // Close mobile menu when clicking on a link
-        const mobileLinks = mobileMenu.querySelectorAll('a');
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                mobileMenu.classList.add('hidden');
+        // DYNAMIC PRELOADER - Duration based on actual load time (min: 0s, max: 2s)
+        (function() {
+            const startTime = performance.timing.navigationStart || Date.now();
+            
+            window.addEventListener('load', function() {
+                const loadTime = Date.now() - startTime;
+                
+                // Calculate dynamic duration
+                // If page loads in < 500ms, show for remaining time up to 500ms
+                // If page loads in 500-2000ms, hide immediately
+                // If page loads in > 2000ms, hide immediately (already exceeded max)
+                const MIN_DISPLAY = 0;
+                const MAX_DISPLAY = 2000;
+                const IDEAL_DISPLAY = 500;
+                
+                let displayDuration;
+                
+                if (loadTime < IDEAL_DISPLAY) {
+                    // Page loaded fast, show preloader until IDEAL_DISPLAY
+                    displayDuration = IDEAL_DISPLAY - loadTime;
+                } else if (loadTime < MAX_DISPLAY) {
+                    // Page loaded between ideal and max, hide immediately
+                    displayDuration = MIN_DISPLAY;
+                } else {
+                    // Page took longer than max, hide immediately
+                    displayDuration = MIN_DISPLAY;
+                }
+                
+                // Ensure duration stays within bounds
+                displayDuration = Math.max(MIN_DISPLAY, Math.min(displayDuration, MAX_DISPLAY));
+                
+                // Hide preloader after calculated duration
+                setTimeout(function() {
+                    const preloader = document.getElementById('preloader');
+                    preloader.classList.add('fade-out');
+                    setTimeout(function() {
+                        preloader.style.display = 'none';
+                    }, 500); // Fade out transition duration
+                }, displayDuration);
             });
+        })();
+        
+        // Mobile Menu
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => menu.classList.toggle('hidden'));
+        
+        menu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => menu.classList.add('hidden'));
         });
         
-        // Smooth scroll behavior
+        // Smooth Scroll
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
+            anchor.addEventListener('click', function(e) {
                 e.preventDefault();
                 const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
+                if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
             });
         });
         
-        // Fade in animation on scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -50px 0px'
-        };
+        // Lazy Load Images
+        document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+            img.addEventListener('load', function() {
+                this.classList.add('loaded');
+            });
+        });
         
+        // Fade In on Scroll
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add('fade-in');
-                }
+                if (entry.isIntersecting) entry.target.classList.add('fade-in');
             });
-        }, observerOptions);
+        }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
         
-        // Observe all sections
-        document.querySelectorAll('section').forEach(section => {
-            observer.observe(section);
-        });
+        document.querySelectorAll('section').forEach(section => observer.observe(section));
     </script>
 
 </body>
