@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CV Oyama Service - HVAC Specialist</title>
+    <meta name="description" content="Jasa Pasang, Service, Cuci AC & Penjualan Unit AC. Teknisi Bersertifikat BNSP dengan Garansi Layanan.">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts - Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #38bdf8;
+            border-radius: 5px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #0ea5e9;
+        }
+        
+        /* Smooth animations */
+        .fade-in {
+            animation: fadeIn 0.8s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* Hover effects */
+        .card-hover {
+            transition: all 0.3s ease;
+        }
+        
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+        
+        /* WhatsApp Button Float */
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.1);
+            }
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+
+    <!-- Sticky Navbar -->
+    <nav class="bg-white shadow-md sticky top-0 z-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <!-- Logo -->
+                <div class="flex items-center space-x-2">
+                    
+                    <span class="text-xl font-bold text-gray-800">CV Oyama Service</span>
+                </div>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-sky-400 transition font-medium">Home</a>
+                    <a href="#services" class="text-gray-700 hover:text-sky-400 transition font-medium">Services</a>
+                    <a href="#why-us" class="text-gray-700 hover:text-sky-400 transition font-medium">Why Us</a>
+                    <a href="#contact" class="text-gray-700 hover:text-sky-400 transition font-medium">Contact</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button id="mobile-menu-btn" class="md:hidden text-gray-700 focus:outline-none">
+                    <i class="fas fa-bars text-2xl"></i>
+                </button>
+            </div>
+            
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden pb-4">
+                <a href="#home" class="block py-2 text-gray-700 hover:text-sky-400 transition">Home</a>
+                <a href="#services" class="block py-2 text-gray-700 hover:text-sky-400 transition">Services</a>
+                <a href="#why-us" class="block py-2 text-gray-700 hover:text-sky-400 transition">Why Us</a>
+                <a href="#contact" class="block py-2 text-gray-700 hover:text-sky-400 transition">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative bg-gradient-to-br from-sky-50 to-blue-100 py-20 lg:py-32">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <!-- Text Content -->
+                <div class="fade-in">
+                    <h1 class="text-4xl lg:text-5xl xl:text-6xl font-bold text-gray-800 leading-tight mb-6">
+                        Solusi Udara Sejuk & Nyaman untuk 
+                        <span class="text-sky-500">Bisnis dan Hunian</span> Anda
+                    </h1>
+                    <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                        Spesialis HVAC terpercaya dengan teknisi bersertifikat BNSP. Kami menyediakan jasa pemasangan, service, penjualan, hingga sewa AC untuk kebutuhan komersial dan residensial.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="https://wa.me/6282286168191?text=Halo%20CV%20Oyama%20Service%2C%20saya%20ingin%20konsultasi" 
+                           target="_blank"
+                           class="inline-flex items-center justify-center bg-green-500 hover:bg-green-600 text-white font-semibold px-8 py-4 rounded-lg transition shadow-lg">
+                            <i class="fab fa-whatsapp text-2xl mr-3"></i>
+                            Konsultasi Gratis
+                        </a>
+                        <a href="#services" 
+                           class="inline-flex items-center justify-center bg-white hover:bg-sky-50 text-sky-500 font-semibold px-8 py-4 rounded-lg transition border-2 border-sky-500">
+                            Lihat Layanan
+                            <i class="fas fa-arrow-right ml-3"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Hero Image -->
+                <div class="fade-in">
+                    <img src="https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=800&h=600&fit=crop" 
+                         alt="HVAC Service" 
+                         class="rounded-2xl shadow-2xl w-full h-auto">
+                </div>
+            </div>
+        </div>
+        
+        <!-- Decorative Elements -->
+        <div class="absolute top-20 right-10 opacity-10">
+            <i class="fas fa-snowflake text-sky-400 text-9xl"></i>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
+                    Layanan <span class="text-sky-500">Kami</span>
+                </h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Solusi lengkap untuk semua kebutuhan pendingin ruangan Anda dengan kualitas terjamin
+                </p>
+            </div>
+            
+            <!-- Service Cards -->
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Card 1: Jasa -->
+                <div class="card-hover bg-gradient-to-br from-sky-50 to-blue-50 rounded-2xl p-8 text-center border border-sky-100">
+                    <div class="bg-sky-400 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-tools text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Jasa Profesional</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Pemasangan, service berkala, cuci AC mendalam, dan perbaikan dengan teknisi bersertifikat BNSP
+                    </p>
+                    <ul class="text-left space-y-3 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-sky-500 mt-1 mr-3"></i>
+                            <span class="text-gray-700">Instalasi AC Split & Cassette</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-sky-500 mt-1 mr-3"></i>
+                            <span class="text-gray-700">Service & Maintenance Rutin</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-sky-500 mt-1 mr-3"></i>
+                            <span class="text-gray-700">Cuci AC (Chemical Wash)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-sky-500 mt-1 mr-3"></i>
+                            <span class="text-gray-700">Perbaikan & Troubleshooting</span>
+                        </li>
+                    </ul>
+                    <a href="https://wa.me/6282286168191?text=Halo%2C%20saya%20tertarik%20dengan%20Jasa%20Profesional" 
+                       target="_blank"
+                       class="inline-block bg-sky-400 hover:bg-sky-500 text-white font-semibold px-6 py-3 rounded-lg transition">
+                        Hubungi Kami
+                    </a>
+                </div>
+                
+                <!-- Card 2: Produk -->
+                <div class="card-hover bg-gradient-to-br from-sky-50 to-blue-50 rounded-2xl p-8 text-center border border-sky-100">
+                    <div class="bg-sky-400 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-shopping-cart text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Penjualan Produk</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Unit AC berkualitas dari brand ternama dengan garansi resmi dan harga kompetitif
+                    </p>
+                    <ul class="text-left space-y-3 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-sky-500 mt-1 mr-3"></i>
+                            <span class="text-gray-700">AC Split (Low Watt - Inverter)</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-sky-500 mt-1 mr-3"></i>
+                            <span class="text-gray-700">AC Cassette untuk Komersial</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-sky-500 mt-1 mr-3"></i>
+                            <span class="text-gray-700">AC Standing Floor</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-sky-500 mt-1 mr-3"></i>
+                            <span class="text-gray-700">Garansi Resmi dari Pabrikan</span>
+                        </li>
+                    </ul>
+                    <a href="https://wa.me/6282286168191?text=Halo%2C%20saya%20ingin%20info%20harga%20AC" 
+                       target="_blank"
+                       class="inline-block bg-sky-400 hover:bg-sky-500 text-white font-semibold px-6 py-3 rounded-lg transition">
+                        Tanya Harga
+                    </a>
+                </div>
+                
+                <!-- Card 3: Sewa -->
+                <div class="card-hover bg-gradient-to-br from-sky-50 to-blue-50 rounded-2xl p-8 text-center border border-sky-100">
+                    <div class="bg-sky-400 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <i class="fas fa-calendar-alt text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Sewa / Rental</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Solusi fleksibel untuk kebutuhan pendingin sementara dengan harga terjangkau
+                    </p>
+                    <ul class="text-left space-y-3 mb-6">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-sky-500 mt-1 mr-3"></i>
+                            <span class="text-gray-700">Rental AC untuk Event</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-sky-500 mt-1 mr-3"></i>
+                            <span class="text-gray-700">Cooling Fan Industri</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-sky-500 mt-1 mr-3"></i>
+                            <span class="text-gray-700">Paket Harian, Mingguan, Bulanan</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-sky-500 mt-1 mr-3"></i>
+                            <span class="text-gray-700">Free Instalasi & Maintenance</span>
+                        </li>
+                    </ul>
+                    <a href="https://wa.me/6282286168191?text=Halo%2C%20saya%20ingin%20sewa%20AC" 
+                       target="_blank"
+                       class="inline-block bg-sky-400 hover:bg-sky-500 text-white font-semibold px-6 py-3 rounded-lg transition">
+                        Sewa Sekarang
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section id="why-us" class="py-20 bg-gradient-to-br from-sky-50 to-blue-50">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
+                    Mengapa <span class="text-sky-500">Memilih Kami?</span>
+                </h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Komitmen kami adalah memberikan layanan terbaik dengan standar profesional tertinggi
+                </p>
+            </div>
+            
+            <!-- Features Grid -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition">
+                    <div class="bg-sky-100 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-certificate text-sky-500 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Teknisi Bersertifikat BNSP</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Semua teknisi kami memiliki sertifikasi resmi dari Badan Nasional Sertifikasi Profesi (BNSP) yang menjamin kompetensi dan profesionalisme.
+                    </p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition">
+                    <div class="bg-sky-100 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-clipboard-check text-sky-500 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Sesuai SOP Standar</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Pengerjaan mengikuti Standar Operasional Prosedur (SOP) yang ketat untuk hasil maksimal, rapi, dan aman.
+                    </p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition">
+                    <div class="bg-sky-100 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-money-bill-wave text-sky-500 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Transparansi Harga</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Estimasi biaya diberikan di awal sebelum pengerjaan dimulai. Tidak ada biaya tersembunyi atau kejutan di akhir.
+                    </p>
+                </div>
+                
+                <!-- Feature 4 -->
+                <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition">
+                    <div class="bg-sky-100 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-shield-alt text-sky-500 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Garansi Layanan</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Setiap pekerjaan yang kami lakukan dilengkapi dengan jaminan garansi layanan untuk kepuasan pelanggan.
+                    </p>
+                </div>
+                
+                <!-- Feature 5 -->
+                <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition">
+                    <div class="bg-sky-100 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-clock text-sky-500 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Respon Cepat</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Tim kami siap melayani dengan cepat dan responsif untuk setiap kebutuhan darurat atau konsultasi Anda.
+                    </p>
+                </div>
+                
+                <!-- Feature 6 -->
+                <div class="bg-white rounded-xl p-8 shadow-lg hover:shadow-xl transition">
+                    <div class="bg-sky-100 w-16 h-16 rounded-lg flex items-center justify-center mb-6">
+                        <i class="fas fa-users text-sky-500 text-3xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-800 mb-3">Pengalaman Terpercaya</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Telah dipercaya oleh ratusan pelanggan residensial dan komersial di berbagai wilayah dengan kepuasan tinggi.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-white">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+            <!-- Section Header -->
+            <div class="text-center mb-16">
+                <h2 class="text-3xl lg:text-4xl font-bold text-gray-800 mb-4">
+                    Hubungi <span class="text-sky-500">Kami</span>
+                </h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Siap melayani kebutuhan HVAC Anda. Konsultasi gratis dan dapatkan penawaran terbaik!
+                </p>
+            </div>
+            
+            <div class="grid lg:grid-cols-2 gap-12">
+                <!-- Contact Info -->
+                <div class="space-y-6">
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-sky-100 w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-map-marker-alt text-sky-500 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-800 mb-2">Alamat Kantor</h3>
+                            <p class="text-gray-600">
+                                Jl. Contoh No. 123, Kelurahan ABC<br>
+                                Kecamatan XYZ, Kota Batam<br>
+                                Kepulauan Riau 29432
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-sky-100 w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fab fa-whatsapp text-sky-500 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-800 mb-2">WhatsApp</h3>
+                            <a href="https://wa.me/6282286168191" target="_blank" class="text-sky-500 hover:text-sky-600 transition">
+                                +62 812-3456-7890
+                            </a>
+                            <p class="text-sm text-gray-500 mt-1">Respon cepat 24/7</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4">
+                        <div class="bg-sky-100 w-12 h-12 rounded-lg flex items-center justify-center flex-shrink-0">
+                            <i class="fas fa-envelope text-sky-500 text-xl"></i>
+                        </div>
+                        <div>
+                            <h3 class="font-bold text-gray-800 mb-2">Email</h3>
+                            <a href="mailto:info@oyamaservice.com" class="text-sky-500 hover:text-sky-600 transition">
+                                info@oyamaservice.com
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Media -->
+                    <div class="pt-6">
+                        <h3 class="font-bold text-gray-800 mb-4">Ikuti Kami</h3>
+                        <div class="flex space-x-4">
+                            <a href="#" target="_blank" 
+                               class="bg-sky-100 hover:bg-sky-200 w-12 h-12 rounded-lg flex items-center justify-center transition">
+                                <i class="fab fa-facebook-f text-sky-500 text-xl"></i>
+                            </a>
+                            <a href="#" target="_blank" 
+                               class="bg-sky-100 hover:bg-sky-200 w-12 h-12 rounded-lg flex items-center justify-center transition">
+                                <i class="fab fa-instagram text-sky-500 text-xl"></i>
+                            </a>
+                            <a href="#" target="_blank" 
+                               class="bg-sky-100 hover:bg-sky-200 w-12 h-12 rounded-lg flex items-center justify-center transition">
+                                <i class="fab fa-tiktok text-sky-500 text-xl"></i>
+                            </a>
+                            <a href="#" target="_blank" 
+                               class="bg-sky-100 hover:bg-sky-200 w-12 h-12 rounded-lg flex items-center justify-center transition">
+                                <i class="fab fa-youtube text-sky-500 text-xl"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Contact Image -->
+                <div class="rounded-2xl overflow-hidden shadow-xl">
+                    <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?w=800&h=600&fit=crop" 
+                         alt="Contact Us" 
+                         class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-8">
+        <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="flex items-center justify-center space-x-2 mb-4">
+                <i class="fas fa-snowflake text-sky-400 text-2xl"></i>
+                <span class="text-xl font-bold">CV Oyama Service</span>
+            </div>
+            <p class="text-gray-400 mb-2">HVAC Specialist - Solusi Udara Sejuk & Nyaman</p>
+            <p class="text-gray-500 text-sm">© 2024 CV Oyama Service. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/6282286168191?text=Halo%20CV%20Oyama%20Service" 
+       target="_blank"
+       class="whatsapp-float bg-green-500 hover:bg-green-600 text-white w-16 h-16 rounded-full flex items-center justify-center shadow-2xl transition">
+        <i class="fab fa-whatsapp text-3xl"></i>
+    </a>
+
+    <!-- JavaScript for Mobile Menu -->
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Close mobile menu when clicking on a link
+        const mobileLinks = mobileMenu.querySelectorAll('a');
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+        
+        // Smooth scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+        
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('fade-in');
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all sections
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+
+</body>
+</html>
